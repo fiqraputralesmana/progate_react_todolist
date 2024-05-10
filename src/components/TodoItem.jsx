@@ -22,7 +22,7 @@ const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
         style={styles.button}
         onClick={() => deleteTodo(todo.id)} // Delete
       >
-        x
+        X
       </button>
     </div>
   );

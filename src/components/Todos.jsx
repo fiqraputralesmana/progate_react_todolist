@@ -21,6 +21,7 @@ const Todos = ({ todos, toggleCompleted, deleteTodo }) => {
 const styles = {
   container: {
     margin: "0 auto",
+
     // width: "40%",
   },
 };
