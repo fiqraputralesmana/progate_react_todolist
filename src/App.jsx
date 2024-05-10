@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Todos from "./components/Todos";
+import TodoForm from "./components/TodoForm";
 
 function App() {
+  // Check
   const toggleCompleted = (todoId) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === todoId) {
@@ -13,8 +15,24 @@ function App() {
   };
 
   // Delete
-  const handleDelete = (todoId) => {
+  const deleteTodo = (todoId) => {
     const updatedTodos = todos.filter((todo) => todo.id !== todoId);
+    setTodos(updatedTodos);
+  };
+
+  // addTodo
+  const addTodo = (todoTitle) => {
+    if (todoTitle === "") {
+      return;
+    }
+
+    const newTodo = {
+      id: todos.length + 1,
+      title: todoTitle,
+      completed: false,
+    };
+
+    const updatedTodos = todos.concat(newTodo);
     setTodos(updatedTodos);
   };
 
@@ -41,10 +59,11 @@ function App() {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>My Todo List</h1>
+      <TodoForm addTodo={addTodo} />
       <Todos
         todos={todos}
         toggleCompleted={toggleCompleted}
-        handleDelete={handleDelete}
+        deleteTodo={deleteTodo}
       />
     </div>
   );

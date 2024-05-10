@@ -1,7 +1,7 @@
 import React from "react";
 
 // Menerima function toggleCompleted sebagai sebuah prop
-const TodoItem = ({ todo, toggleCompleted, handleDelete }) => {
+const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
   const getTodoTitleStyle = () => {
     if (todo.completed === true) {
       return { textDecoration: "line-through" };
@@ -20,7 +20,7 @@ const TodoItem = ({ todo, toggleCompleted, handleDelete }) => {
       <p style={getTodoTitleStyle()}>{todo.title}</p>
       <button
         style={styles.button}
-        onClick={() => handleDelete(todo.id)} // Delete
+        onClick={() => deleteTodo(todo.id)} // Delete
       >
         x
       </button>

@@ -1,7 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const Todos = ({ todos, toggleCompleted, handleDelete }) => {
+const Todos = ({ todos, toggleCompleted, deleteTodo }) => {
   return (
     <div style={styles.container}>
       {todos.map((todo) => {
@@ -10,7 +10,7 @@ const Todos = ({ todos, toggleCompleted, handleDelete }) => {
             key={todo.id}
             todo={todo}
             toggleCompleted={toggleCompleted}
-            handleDelete={handleDelete} // Delete
+            deleteTodo={deleteTodo} // Delete
           />
         );
       })}
